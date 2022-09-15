@@ -13,15 +13,13 @@
 ***
 - ### User Stories
     * Viewing and navigation.
-        * Shopper goals;
-            1. I would like to be able navigate quickly around the site with it being self explanatory.
-            2. I would want to see products clustered into categories.
+        1. I would like to be able navigate quickly around the site with it being self explanatory.
+        2. I would want to see products clustered into categories.
     * Registration and user accounts.
-        * Site user;
-            1. I would like to register for an account.
-            2. I would want to be able to log in and log out.
-            3. I would like to update and delete my personal details.
-            4. I would like to see my past orders.
+        1. I would like to register for an account.
+        2. I would want to be able to log in and log out.
+        3. I would like to update and delete my personal details.
+        4. I would like to see my past orders.
     * Purchasing and checkout.
         1. I would like to add items to the basket and see an overview of their total prices.
         2. I would like to get to the checkout using my basket.
