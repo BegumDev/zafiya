@@ -1,4 +1,4 @@
-<h1 align="center">MS4</h1>
+<h1 align="center">Zafiya Home Fragrances MS4</h1>
 
 ## Contents
 1. [User Experience](#user-experience-ux)
@@ -29,6 +29,10 @@
         
 
 - ### Wireframes
+    <details><summary>Landing Page Wireframe:</summary>
+        
+    ![Image of laptop, tablet and phone wireframes of the main landing page](docs/wireframes/MS4-landing-page-wireframe.JPG)
+    </details>
 
 - ### Design
     - #### Color Scheme
