@@ -1,6 +1,18 @@
 {% extends 'base.html' %}
 {% load static %}
 
+{% block page_header %}
+    <div class="container header-container">
+        <div class="row">
+            <div class="col">This is from the index.html in templates as a blank header</div>
+        </div>
+    </div>
+{% endblock %}
+
 {% block content %}
-<h1 class="display-4 text success">Hi!</h1>
+<div class="container">
+    <div class="row">
+        <div class="col">This is the content coming from index.html.</div>
+    </div>
+</div>
 {% endblock %}
