@@ -1,0 +1,27 @@
+[{
+        "pk": 1,
+        "model": "products.product",
+        "fields": {
+            "sku": "5306",
+            "name": "Citrus Breeze",
+            "description": "Bootcut jeans in our just-right original fit are comfortable and look great too.  5-pocket style sits below waist straight fit through seat and thigh bootcut leg 18\" leg opening cotton washable imported extended sizes and washes available online only",
+            "price": 9.99,
+            "category": 2,
+            "rating": 3.8,
+            "image": "reed-diffuser.webp"
+        }
+    },
+    {
+        "pk": 2,
+        "model": "products.product",
+        "fields": {
+            "sku": "5307",
+            "name": "Cherry Blossom",
+            "description": "Straight-leg styling and on-the-job comfort make our Audra pants a flattering business decision. flat front zip fly with hook-and-bar closure 2 front and 2 back welt pockets 34 1/2\" inseam polyester/rayon/spandex washable imported",
+            "price": 10.99,
+            "category": 1,
+            "rating": 4.8,
+            "image": "reed-diffuser.webp"
+        }
+    }
+]
