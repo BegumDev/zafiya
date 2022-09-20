@@ -1,11 +1,11 @@
-/* html{
-    width: 100%;
+html{
     height: 100%;
-} */
+}
 
 body {
     font-family: Montserrat;
 }
+
 
 .main-hero {
     background: url('/media/hero.jpg') no-repeat;
@@ -29,13 +29,5 @@ body {
 }
 
 footer{
-    height: 120px;
-    background-color: black;
-}
-
-.footer-links{
-    height: 30px;
-    width: 30px;
-    display: inline-block;
-    list-style: none;
+    height: 60px;
 }
