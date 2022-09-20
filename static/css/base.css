@@ -32,3 +32,13 @@ body {
 footer{
     height: 60px;
 }
+
+section{
+    height: 600px;
+}
+
+.product-card{
+    width: 200px;
+    height: 200px;
+    border: 2px solid #7777;
+}

@@ -2,17 +2,57 @@
 {% load static %}
 
 {% block page_header %}
+<!-- product page header -->
+<div class="row">
+    <div class="col-12">
+        <h2 class="text-center mt-3 mb-3"> Shop All Products</h2>
+    </div>
+</div>
+
+<!-- sort and filter -->
+<div class="row">
+    <div class="col-6"></div>
+    <div class="col-6"></div>
+</div>
 
 {% endblock %}
 
 {% block content %}
 
-<div class="container">
-    <div class="row">
-        <div class="col">
-            {{ products }}
+<section class="bg-light">
+    <div class="container-fluid">
+        <div class="row">
+            <!-- product card -->
+            {% for product in products %}
+                <div class="col-12 col-md-4 col-lg-3 product-card m-2">
+                    <div class="row">
+                        <div class="col-12">
+                            {{ product.image }}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <h4>{{ product.name }}</h4>
+                        </div>
+                    </div>
+                    <hr class="mt-0 mb-1">
+                    <div class="row">
+                        <div class="col-6">
+                            <p><strong>Price</strong>: £{{ product.price }}</p>
+                        </div>
+                        <div class="col-6">
+                            <p><strong>Rating</strong>: {{ product.rating }}</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <p><i class="fa-solid fa-tag"></i> {{ product.category }}</p>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
         </div>
     </div>
-</div>
+</section>
 
 {% endblock %}
