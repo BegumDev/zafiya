@@ -8,7 +8,7 @@
             "price": 9.99,
             "category": 2,
             "rating": 3.8,
-            "image": "reed-diffuser.webp"
+            "image": "reed-diffuser.jpg"
         }
     },
     {
@@ -21,7 +21,72 @@
             "price": 10.99,
             "category": 1,
             "rating": 4.8,
-            "image": "reed-diffuser.webp"
+            "image": "reed-diffuser.jpg"
+        }
+    },
+    {
+        "pk": 3,
+        "model": "products.product",
+        "fields": {
+            "sku": "5306",
+            "name": "Citrus Breeze",
+            "description": "Bootcut jeans in our just-right original fit are comfortable and look great too.  5-pocket style sits below waist straight fit through seat and thigh bootcut leg 18\" leg opening cotton washable imported extended sizes and washes available online only",
+            "price": 9.99,
+            "category": 2,
+            "rating": 3.8,
+            "image": "reed-diffuser.jpg"
+        }
+    },
+    {
+        "pk": 9,
+        "model": "products.product",
+        "fields": {
+            "sku": "5306",
+            "name": "Citrus Breeze",
+            "description": "Bootcut jeans in our just-right original fit are comfortable and look great too.  5-pocket style sits below waist straight fit through seat and thigh bootcut leg 18\" leg opening cotton washable imported extended sizes and washes available online only",
+            "price": 9.99,
+            "category": 2,
+            "rating": 3.8,
+            "image": "reed-diffuser.jpg"
+        }
+    },
+    {
+        "pk": 8,
+        "model": "products.product",
+        "fields": {
+            "sku": "5306",
+            "name": "Citrus Breeze",
+            "description": "Bootcut jeans in our just-right original fit are comfortable and look great too.  5-pocket style sits below waist straight fit through seat and thigh bootcut leg 18\" leg opening cotton washable imported extended sizes and washes available online only",
+            "price": 9.99,
+            "category": 2,
+            "rating": 3.8,
+            "image": "reed-diffuser.jpg"
+        }
+    },
+    {
+        "pk": 7,
+        "model": "products.product",
+        "fields": {
+            "sku": "5306",
+            "name": "Citrus Breeze",
+            "description": "Bootcut jeans in our just-right original fit are comfortable and look great too.  5-pocket style sits below waist straight fit through seat and thigh bootcut leg 18\" leg opening cotton washable imported extended sizes and washes available online only",
+            "price": 9.99,
+            "category": 2,
+            "rating": 3.8,
+            "image": "reed-diffuser.jpg"
+        }
+    },
+    {
+        "pk": 6,
+        "model": "products.product",
+        "fields": {
+            "sku": "5306",
+            "name": "Citrus Breeze",
+            "description": "Bootcut jeans in our just-right original fit are comfortable and look great too.  5-pocket style sits below waist straight fit through seat and thigh bootcut leg 18\" leg opening cotton washable imported extended sizes and washes available online only",
+            "price": 9.99,
+            "category": 2,
+            "rating": 3.8,
+            "image": "reed-diffuser.jpg"
         }
     }
 ]

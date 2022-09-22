@@ -34,11 +34,18 @@ footer{
 }
 
 section{
-    height: 600px;
+    height: auto;
+    width: 80%;
+    margin: 0 auto;
 }
 
 .product-card{
     width: 200px;
-    height: 200px;
+    height: auto;
     border: 2px solid #7777;
+}
+
+.products-image img{
+    height: 150px;
+    width: 150px;
 }
