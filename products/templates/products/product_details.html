@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block page_header %}
+
+
+
+{% endblock %}
+
+{% block content %}
+
+<section>
+    <h1>product details page</h1>
+
+    <div class="col-12 product-card m-2">
+        <div class="row">
+            <div class="col-12 products-image text-center">
+                <img src="{{ products.image.url }}" alt="{{ product.name }}">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <h4>{{ products.name }}</h4>
+            </div>
+        </div>
+        <hr class="mt-0 mb-1">
+        <div class="row">
+            <div class="col-6">
+                <p><strong>Price</strong>: £{{ products.price }}</p>
+            </div>
+            <div class="col-6">
+                <p><strong>Rating</strong>: {{ products.rating }}</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 text-center">
+                <button class="btn btn-sm bg-secondary text-uppercase">add to basket</button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <p><i class="fa-solid fa-tag"></i> {{ products.category }}</p>
+            </div>
+        </div>
+</section>
+
+{% endblock %}

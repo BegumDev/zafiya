@@ -54,6 +54,7 @@
                             <p><i class="fa-solid fa-tag"></i> {{ product.category }}</p>
                         </div>
                     </div>
+                    <a href="{% url 'product_details' product.id %}"><button>view details</button></a>
                 </div>
             {% endfor %}
         </div>
