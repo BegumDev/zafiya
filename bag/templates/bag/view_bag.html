@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block page_header %}
+
+<h2 class="text-center">Basket</h2>
+
+{% endblock %}
+
+{% block content %}
+
+<section>
+    <!-- basket and checkout access summary -->
+    <div class="row">
+        <div class="col-6">
+            <h4>Basket Total:
+                {% if grand_total %}
+                £{{ grand_total|floatformat:2 }}
+                {% else %}
+                £0.00
+                {% endif %}</h4>
+        </div>
+        <div class="row">
+            <div class="col-6">
+                <a href=""><button class="btn btn-md bg-secondary">Checkout</button></a>
+            </div>
+        </div>
+    </div>
+
+    
+
+    <div class="row">
+        <div class="col-12">
+            <table class="table table-dark table-hover">
+
+            </table>
+        </div>
+    </div>
+    
+
+</section>
+
+
+{% endblock %}

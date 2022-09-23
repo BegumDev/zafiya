@@ -96,7 +96,7 @@
                     </li> -->
                     <!-- basket -->
                     <li class="list-inline-item dropdown">
-                        <a class="nav-link" href="#">
+                        <a class="nav-link" href="{% url 'view_bag' %}">
                             Basket
                             {% if grand_total %}
                             £{{ grand_total|floatformat:2 }}
@@ -115,7 +115,7 @@
         <!-- free delivery banner -->
         <div class="row bg-secondary">
             <div class="col-12">
-                <h5 class="text-uppercase mt-2 text-light">free delivery on orders over £29.99!</h5>
+                <h5 class="text-uppercase mt-2 text-light">free delivery on orders over £{{ free_delivery_threshold }}!</h5>
             </div>
         </div>
 
