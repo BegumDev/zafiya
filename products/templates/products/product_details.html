@@ -15,12 +15,12 @@
     <div class="col-12 product-card m-2">
         <div class="row">
             <div class="col-12 products-image text-center mt-2">
-                <img src="{{ products.image.url }}" alt="{{ product.name }}">
+                <img src="{{ product.image.url }}" alt="{{ product.name }}">
             </div>
         </div>
         <div class="row">
             <div class="col-12 mt-2">
-                <h4>{{ products.name }}</h4>
+                <h4>{{ product.name }}</h4>
             </div>
         </div>
         <hr class="mt-0 mb-1">
@@ -29,12 +29,12 @@
                 <p><strong>Price</strong>: £{{ products.price }}</p>
             </div>
             <div class="col-6">
-                <p><strong>Rating</strong>: {{ products.rating }}</p>
+                <p><strong>Rating</strong>: {{ product.rating }}</p>
             </div>
         </div>
 
         <!-- form to add quantity to the bag -->
-        <form class="form" action="{% url 'add_to_bag' products.id %}" method="POST">
+        <form class="form" action="{% url 'add_to_bag' product.id %}" method="POST">
             {% csrf_token %}
             <div class="form-row">
                 <div class="col-12">
