@@ -45,17 +45,14 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-12 text-center">
-                            <button class="btn btn-sm bg-secondary text-uppercase">add to basket</button>
-                        </div>
-                    </div>
-                    <div class="row">
                         <div class="col-12">
                             <p><i class="fa-solid fa-tag"></i> {{ product.category }}</p>
                         </div>
                     </div>
                     <a href="{% url 'product_details' product.id %}"><button>view details</button></a>
                 </div>
+                
+
             {% endfor %}
         </div>
     </div>

@@ -10,16 +10,16 @@
 {% block content %}
 
 <section>
-    <h1>product details page</h1>
+    <h1 class="text-center mb-3">product details page</h1>
 
     <div class="col-12 product-card m-2">
         <div class="row">
-            <div class="col-12 products-image text-center">
+            <div class="col-12 products-image text-center mt-2">
                 <img src="{{ products.image.url }}" alt="{{ product.name }}">
             </div>
         </div>
         <div class="row">
-            <div class="col-12">
+            <div class="col-12 mt-2">
                 <h4>{{ products.name }}</h4>
             </div>
         </div>
@@ -32,11 +32,31 @@
                 <p><strong>Rating</strong>: {{ products.rating }}</p>
             </div>
         </div>
-        <div class="row">
-            <div class="col-12 text-center">
-                <button class="btn btn-sm bg-secondary text-uppercase">add to basket</button>
+
+        <!-- form to add quantity to the bag -->
+        <form class="form" action="{% url 'add_to_bag' products.id %}" method="POST">
+            {% csrf_token %}
+            <div class="form-row">
+                <div class="col-12">
+                    <p>Quantity: </p>
+                    <div class="form-group w-50">
+                        <div class="input-group">
+                            <input type="number" class="form-control" name="quantity" value="1" min="1" max="99" data-item-id="{{ product.id }}">
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
+
+            <input type="submit" class="btn btn-md btn-secondary" value="add to bag">
+            <a href="{% url 'products' %}" class="btn btn-md btn-primary">
+                <i class="fa-solid fa-chevron-left"></i>
+                <span>Keep shopping</span>
+            </a>
+
+            <input type="hidden" name="redirect_url" value="{{ request.path }}">
+
+        </form>
+
         <div class="row">
             <div class="col-12">
                 <p><i class="fa-solid fa-tag"></i> {{ products.category }}</p>
