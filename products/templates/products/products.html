@@ -24,35 +24,33 @@
         <div class="row">
             <!-- product card -->
             {% for i in product %}
-                <div class="col-12 col-md-4 col-lg-3 product-card m-2">
-                    <div class="row">
-                        <div class="col-12 products-image text-center">
-                            <img src="{{ i.image.url }}" alt="{{ i.name }}">
-                        </div>
+            <div class="col-12 col-md-4 col-lg-3 product-card m-2">
+                <div class="row">
+                    <div class="col-12 products-image text-center">
+                        <img src="{{ i.image.url }}" alt="{{ i.name }}">
                     </div>
-                    <div class="row">
-                        <div class="col-12">
-                            <h4>{{ i.name }}</h4>
-                        </div>
-                    </div>
-                    <hr class="mt-0 mb-1">
-                    <div class="row">
-                        <div class="col-6">
-                            <p><strong>Price</strong>: £{{ i.price }}</p>
-                        </div>
-                        <div class="col-6">
-                            <p><strong>Rating</strong>: {{ i.rating }}</p>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-12">
-                            <p><i class="fa-solid fa-tag"></i> {{ i.category.visual_name }}</p>
-                        </div>
-                    </div>
-                    <a href="{% url 'product_details' i.id %}"><button>view details</button></a>
                 </div>
-                
-
+                <div class="row">
+                    <div class="col-12">
+                        <h4>{{ i.name }}</h4>
+                    </div>
+                </div>
+                <hr class="mt-0 mb-1">
+                <div class="row">
+                    <div class="col-6">
+                        <p><strong>Price</strong>: £{{ i.price }}</p>
+                    </div>
+                    <div class="col-6">
+                        <p><strong>Rating</strong>: {{ i.rating }}</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <p><i class="fa-solid fa-tag"></i> {{ i.category.visual_name }}</p>
+                    </div>
+                </div>
+                <a href="{% url 'product_details' i.id %}"><button>view details</button></a>
+            </div>
             {% endfor %}
         </div>
     </div>
