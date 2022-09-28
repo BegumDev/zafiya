@@ -3,8 +3,6 @@
 
 {% block page_header %}
 
-
-
 {% endblock %}
 
 {% block content %}
@@ -39,12 +37,12 @@
             <div class="form-row">
                 <div class="col-12">
                     <p>Quantity: </p>
-                    <div class="form-group w-80">
+                    <div class="form-group">
                         <div class="input-group">
                             <!-- decrease the qty -->
                             <div class="input-group-prepend">
                                 <button class="decrement-qty btn btn-sm" data-item_id="{{ product.id }}" id="decrement-qty_{{ product.id }}">
-                                    <i class="fas fa-minus"></i>
+                                    <i class="fas fa-minus fa-sm"></i>
                                 </button>
                             </div>
                             <!-- actual qty -->
@@ -53,7 +51,7 @@
                             <!-- increase qty -->
                             <div class="input-group-append">
                                 <button class="increment-qty btn btn-sm" data-item_id="{{ product.id }}" id="increment-qty_{{ product.id }}">
-                                    <i class="fas fa-plus"></i>
+                                    <i class="fas fa-plus fa-sm"></i>
                                 </button>
                             </div>
                         </div>
@@ -71,7 +69,7 @@
 
         <div class="row">
             <div class="col-12">
-                <p><i class="fa-solid fa-tag"></i> {{ products.category }}</p>
+                <p><i class="fa-solid fa-tag"></i> {{ product.category.visual_name }}</p>
             </div>
     </div>
 </section>
