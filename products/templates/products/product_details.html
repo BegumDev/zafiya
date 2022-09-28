@@ -39,7 +39,7 @@
             <div class="form-row">
                 <div class="col-12">
                     <p>Quantity: </p>
-                    <div class="form-group w-50">
+                    <div class="form-group w-80">
                         <div class="input-group">
                             <!-- decrease the qty -->
                             <div class="input-group-prepend">
@@ -49,7 +49,7 @@
                             </div>
                             <!-- actual qty -->
                             <input type="number" class="form-control qty-input" name="quantity" value="1" min="1" max="99"
-                                data-item-id="{{ product.id }}">
+                                data-item-id="{{ product.id }}" id="id_qty_{{ product.id }}">
                             <!-- increase qty -->
                             <div class="input-group-append">
                                 <button class="increment-qty btn btn-sm" data-item_id="{{ product.id }}" id="increment-qty_{{ product.id }}">
