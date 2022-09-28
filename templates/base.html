@@ -35,6 +35,8 @@
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     {% block corejs %}
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"
+        integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/f2b99ab49c.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
         integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
@@ -115,7 +117,8 @@
         <!-- free delivery banner -->
         <div class="row bg-secondary">
             <div class="col-12">
-                <h5 class="text-uppercase mt-2 text-light">free delivery on orders over £{{ free_delivery_threshold }}!</h5>
+                <h5 class="text-uppercase mt-2 text-light">free delivery on orders over £{{ free_delivery_threshold }}!
+                </h5>
             </div>
         </div>
 

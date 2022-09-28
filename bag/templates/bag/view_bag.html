@@ -23,7 +23,7 @@
         </div>
     </div>
 
-    {% if bag_items %}:
+    {% if bag_items %}
 
     <div class="table-responsive">
         <table class="table table-sm">
@@ -34,6 +34,7 @@
                     <th scope="col">Price</th>
                     <th scope="col">Qty</th>
                     <th scope="col">Subtotal</th>
+                    <th scope="col"></th>
                 </tr>
             </thead>
 
@@ -48,8 +49,11 @@
                     <td>
                         <p><strong>£{{ item.product.price }}</strong></p>
                     </td>
+                    <td><p><strong>{{ item.quantity }}</strong></p></td>
                     <td><p><strong></strong></p></td>
-                    <td><p><strong></strong></p></td>
+                    <td>
+                        
+                    </td>
                 </tr>
             {% endfor %}
                 <tr>
