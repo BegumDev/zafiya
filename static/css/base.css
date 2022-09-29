@@ -54,3 +54,8 @@ section{
     height: 150px;
     width: 150px;
 }
+
+.update-link,
+.remove-link {
+    cursor: pointer;
+}
