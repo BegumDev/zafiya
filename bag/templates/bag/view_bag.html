@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load bag_tools %}
 
 {% block page_header %}
 
@@ -85,7 +86,7 @@
                         id="remove_{{ item.item_id }}">Remove</a>
                 </td>
                 <td>
-                    <p><strong></strong></p>
+                    <p><strong>£{{ item.product.price | calc_subtotal:item.quantity }}</strong></p>
                 </td>
             </tr>
             {% endfor %}
@@ -109,7 +110,7 @@
         <div class="row">
             <!-- keep shopping button -->
             <div class="col-6 text-right text-uppercase">
-                <a href="{% url 'products' %}" class="btn btn-md btn-primary">
+                <a href="{% url 'products' %}" class="btn btn-md btn-primary mb-3">
                     <i class="fa-solid fa-chevron-left"></i>
                     <span>Keep shopping</span>
                 </a>
@@ -124,7 +125,7 @@
 
     {% else %}
     <p>Your bag is empty</p>
-    <a href="{% url 'products' %}" class="btn btn-md btn-primary">
+    <a href="{% url 'products' %}" class="btn btn-md btn-primary mb-3">
         <i class="fa-solid fa-chevron-left"></i>
         <span>Keep shopping</span>
     </a>
