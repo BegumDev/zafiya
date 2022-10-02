@@ -2,11 +2,11 @@ from django import forms
 from .models import Order
 
 
-class OrderForm(form.ModelForm):
+class OrderForm(forms.ModelForm):
     class Meta:
         model = Order
-        fields = ('full_name', 'email', 'phone_number', 'streetaddress1', 
-                  'streetaddress2', 'town_or_city', 'postcode', 'country', 
+        fields = ('full_name', 'email', 'phone_number', 'street_address1', 
+                  'street_address2', 'town_or_city', 'postcode', 'country', 
                   'county',)
 
         def __init__(self, *args, **kwargs):
@@ -27,10 +27,10 @@ class OrderForm(form.ModelForm):
             self.fields['full_name'].widget.attrs['autofocus'] = True
             for field in self.fields:
                 if self.fields['field'].required:
-                    placeholder = f'{placeholders[field]}*'
+                    placeholder = f'{placeholders[field]} *'
                 else:
                     placeholder = placeholders[field]
                 self.fields[field].widget.attrs['placeholders'] = placeholder
                 self.fields[field].widget.attrs['class'] = 'stripe-style-input'
                 self.fields[field].label = False
-                
+            
