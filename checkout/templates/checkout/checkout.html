@@ -113,13 +113,14 @@
                     <!-- card errors -->
                     <div class="text-danger" id="card-errors" role="alert"></div>
                 </fieldset>
+            
+                <!-- complete the checkout -->
+                <div class="submit-button">
+                    <a href="{% url 'view_bag' %}">Adjust bag</a>
+                    <button id="submit-button" class="btn">Complete Order</button>
+                    <p class="mt-2">Your card will be charged <strong>£{{ grand_total | floatformat:2 }}</strong></p>
+                </div>
             </form>
-            <!-- complete the checkout -->
-            <div class="submit-button">
-                <a href="{% url 'view_bag' %}">Adjust bag</a>
-                <button id="submit-button">Complete Order</button>
-                <p class="mt-2">Your card will be charged <strong>£{{ grand_total | floatformat:2 }}</strong></p>
-            </div>
         </div>
     </div>
 

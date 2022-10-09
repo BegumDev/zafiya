@@ -33,7 +33,7 @@ form.addEventListener('submit', function(ev) {
     }).then(function(result) {
         if (result.error) {
             var errorDiv = document.getElementById('card-errors');
-            var html = `<span>${result.error.message}</span>`;
+            var html = `<span role="alert">${result.error.message}</span>`;
             $(errorDiv).html(html);
             card.update({
                 'disabled': false
