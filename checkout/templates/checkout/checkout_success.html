@@ -16,8 +16,13 @@
 <section class="mb-3">
     <div class="row">
         <div class="col-12">
-            <h4>Thanks your order has been submitted. An order confirmation will be sent to {{ order.email }}</h4>
+            <h4>Thanks your order has been submitted.
+                Your order number is <strong>{{ order.order_number }}</strong> An order confirmation will be sent to <strong>{{ order.email }}</strong></h4>
         </div>
+        <a href="{% url 'home' %}" class="btn btn-md btn-primary mb-3">
+            <i class="fa-solid fa-chevron-left"></i>
+            <span>Back to the homepage</span>
+        </a>
     </div>
 
 
