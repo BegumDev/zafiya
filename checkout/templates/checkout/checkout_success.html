@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_header %}
+
+<h2 class="text-center mt-3">Thank You</h2>
+
+{% endblock %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'checkout/css/checkout.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<section class="mb-3">
+    <div class="row">
+        <div class="col-12">
+            <h4>Thanks your order has been submitted. An order confirmation will be sent to {{ order.email }}</h4>
+        </div>
+    </div>
+
+
+</section>
+
+
+{% endblock %}

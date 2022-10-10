@@ -27,14 +27,14 @@ class Order(models.Model):
                                         null=False, default=0)
 
 
-    def _generate_order_number_(self):
+    def _generate_order_number(self):
         """ Generate an random order number """
-        return uuid.uuid4().hex.upper()
-        
+        return uuid.uuid4().hex.upper()        
+
 
     def update_total(self):
         """ Updates the grand total every time a new line item is added including delivery costs """
-        self.order_total = self.lineitems.aggregate(Sum('lineitem_total'))[lineitem_total__sum]
+        self.order_total = self.lineitems.aggregate(Sum('lineitem_total'))[lineitem_total__sum] or 0
         if self.order_total < settings.FREE_DELIVERY_THRESHOLD:
             self.delivery_cost = order_total * settings.STANDARD_DELIVERY_PERCENTAGE/100
         else:
@@ -45,7 +45,7 @@ class Order(models.Model):
 
     def save(self, *args, **kwargs):
         """ Override the original save method if an order number hasnt been set """
-        if not order_number:
+        if not self.order_number:
             self.order_number = self._generate_order_number()
         super().save(*args, **kwargs)
 
