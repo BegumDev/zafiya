@@ -27,7 +27,7 @@ def webhook(request):
 
     try:
         event = stripe.Webhook.construct_event(
-            payload, sig_header, wh_secret
+        payload, sig_header, wh_secret
         )
     except ValueError as e:
         # invalid payload
@@ -37,11 +37,9 @@ def webhook(request):
         return HttpResponse(status=400)
     except Exception as e:
         return HttpResponse(content=e, status=400)
-    print('success')
-    return HttpResponse(status=200)
 
     # set up a webhook handler
-    handler = StripeWH_Handler
+    handler = StripeWH_Handler(request)
 
     # map webhook events to relevant event handlers
     event_map = {
@@ -50,7 +48,7 @@ def webhook(request):
     }
 
     # get the event type from stripe
-    event_type = event["type"]
+    event_type = event['type']
 
     # if theres a handler for it, get it from the event map
     event_handler = event_map.get(event_type, handler.handle_event)

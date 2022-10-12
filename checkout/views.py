@@ -3,13 +3,14 @@ from django.views.decorators.http import require_POST
 from django.contrib import messages
 from django.conf import settings
 
-from products.models import Product
-from bag.contexts import bag_contents
 from .forms import OrderForm
 from .models import Order, OrderLineItem
+from products.models import Product
+from bag.contexts import bag_contents
 
 import stripe
 import json
+
 
 @require_POST
 def cache_checkout_data(request):
@@ -33,7 +34,7 @@ def checkout(request):
     stripe_public_key = settings.STRIPE_PUBLIC_KEY
     stripe_secret_key = settings.STRIPE_SECRET_KEY
 
-    if request.method == "POST":
+    if request.method == 'POST':
         bag = request.session.get('bag', {})
 
         form_data = {
@@ -47,6 +48,7 @@ def checkout(request):
             'street_address2': request.POST['street_address2'],
             'county': request.POST['county'],
         }
+
         order_form = OrderForm(form_data)
         if order_form.is_valid():
             order = order_form.save()
@@ -71,8 +73,7 @@ def checkout(request):
     else:
         bag = request.session.get('bag', {})
         if not bag:
-            messages.error(
-                request, "There's nothing in your bag at the moment.")
+            messages.error(request, "There's nothing in your bag at the moment.")
             return redirect(reverse('products'))
 
         current_bag = bag_contents(request)
