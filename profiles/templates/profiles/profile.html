@@ -1,6 +1,5 @@
 {% extends "base.html" %}
 {% load static %}
-{% load bag_tools %}
 
 {% block page_header %}
 
@@ -17,8 +16,17 @@
 <section class="mb-3">
 
     <div class="row">
-        <div class="col-6">
-            <h4><strong>My Profile</strong></h4>
+        <div class="col-12 col-md-6">
+            <p class="">Default Delivery Information</p>
+            <form action="{% url 'profile' %}" method="POST" class="mt-3" id="profile-update-form">
+                {% csrf_token %}
+                {{ form|crispy }}
+                <button class="float-right">Update</button>
+            </form>
+        </div>
+        <div class="col-12 col-md-6">
+            <p>Order History</p>
+            {{ orders }}
         </div>
     </div>
 
