@@ -59,3 +59,18 @@ section{
 .remove-link {
     cursor: pointer;
 }
+
+.message-container {
+    position: fixed;
+    top: 72px;
+    right: 15px;
+    z-index: 9999999999;
+}
+
+.custom-toast {
+    overflow: hidden;
+}
+
+.toast-capper {
+    height: 2px;
+}
