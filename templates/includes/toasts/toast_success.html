@@ -10,7 +10,8 @@
     <div class="toast-body bg-white">
         {{ message }}
     </div>
-    <!-- <div class="bag-wrapper">
+    {% if grand_total and not on_profile_page %}
+    <div class="bag-wrapper">
         <div class="row">
             <div class="col-12 float-right">
                 <p class="ml-3">{{ product_count }} items in bag</p>
@@ -37,7 +38,8 @@
                 {% endfor %}
             </div>
         </div>
-    </div> -->
+    </div>
+    {% endif %}
 </div>
 
 
