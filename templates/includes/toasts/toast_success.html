@@ -10,6 +10,34 @@
     <div class="toast-body bg-white">
         {{ message }}
     </div>
+    <!-- <div class="bag-wrapper">
+        <div class="row">
+            <div class="col-12 float-right">
+                <p class="ml-3">{{ product_count }} items in bag</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                {% for item in bag_items %}
+                    <div class="row">
+                        <div class="col-3 bag-img ml-3">
+                            <img src="{{ item.product.image.url }}" alt="Image of {{ item.product.name }}">
+                        </div>
+                        <div class="col-9">
+                            <div class="row">
+                                <div class="col-6">
+                                    <p><strong>{{ item.product.name }}</strong></p>
+                                </div>
+                                <div class="col-6">
+                                    <p>x {{ item.quantity }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div> -->
 </div>
 
 

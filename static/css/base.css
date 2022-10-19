@@ -74,3 +74,8 @@ section{
 .toast-capper {
     height: 2px;
 }
+
+.bag-img img{
+    height: 50px;
+    width: 50px;
+}

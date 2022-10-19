@@ -109,55 +109,54 @@
                             class="fa-solid fa-magnifying-glass"></i></button>
                 </form>
             </div>
-            <!-- right menu -->
-            <div class="col-12 col-lg-5 text-center">
-                <ul class="list-inline list-unstyled text-lg-right">
-                    <!-- account -->
-                    <li class="list-inline-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                            aria-expanded="false">
-                            Account
-                        </a>
-                        <ul class="dropdown-menu">
-                            {% if request.user.is_authenticated %}
-                            {% if request.user.is_superuser %}
-                            <li><a class="dropdown-item" href="#">Product Management</a></li>
-                            {% endif %}
-                            <li><a class="dropdown-item" href="{% url 'profile' %}">My Profile</a></li>
-                            <li><a class="dropdown-item" href="{% url 'account_logout' %}">Logout</a></li>
-                            {% else %}
-                            <li><a class="dropdown-item" href="{% url 'account_signup' %}">Register</a></li>
-                            <li><a class="dropdown-item" href="{% url 'account_login' %}">Login</a></li>
-                            {% endif %}
-                        </ul>
-                    </li>
-                    <!-- contact -->
-                    <!-- <li class="list-inline-item dropdown">
-                        <a class="nav-link" href="">Contact</a>
-                    </li> -->
-                    <!-- basket -->
-                    <li class="list-inline-item dropdown">
-                        <a class="nav-link" href="{% url 'view_bag' %}">
-                            Basket
-                            {% if grand_total %}
-                            £{{ grand_total|floatformat:2 }}
-                            {% else %}
-                            £0.00
-                            {% endif %}
-                        </a>
-                    </li>
-                </ul>
-            </div>
+            <!-- right menu (account and basket)-->
+            <nav class=" col-12 col-lg-5 navbar navbar-expand-lg navbar-light bg-light">
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="{% url 'home' %}">Home <span class="sr-only">(current)</span></a>
+                        </li>
+                        <!-- account -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Account</a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                {% if request.user.is_authenticated %}
+                                {% if request.user.is_superuser %}
+                                <a class="dropdown-item" href="#">Product Management</a>
+                                {% endif %}
+                                <a class="dropdown-item" href="{% url 'profile' %}">My Profile</a>
+                                <a class="dropdown-item" href="{% url 'account_logout' %}">Logout</a>
+                                {% else %}
+                                <a class="dropdown-item" href="{% url 'account_signup' %}">Register</a>
+                                <a class="dropdown-item" href="{% url 'account_login' %}">Login</a>
+                                {% endif %}
+                            </div>
+                        </li>
+                        <!-- basket -->
+                        <li class="nav-item active">
+                            <a class="nav-link" href="{% url 'view_bag' %}">
+                                Basket
+                                {% if grand_total %}
+                                £{{ grand_total|floatformat:2 }}
+                                {% else %}
+                                £0.00
+                                {% endif %}
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
         </div>
+    </header>
 
         {% include 'includes/mobile-nav.html' %}
         {% include 'includes/main-nav.html' %}
 
         <!-- free delivery banner -->
-        <div class="row bg-secondary">
+        <div class="row bg-secondary text-center">
             <div class="col-12">
-                <h5 class="text-uppercase mt-2 text-light">free delivery on orders over £{{ free_delivery_threshold }}!
-                </h5>
+                <h5 class="text-uppercase mt-2 text-light">free delivery on orders over £{{ free_delivery_threshold }}!</h5>
             </div>
         </div>
 
@@ -166,17 +165,21 @@
     {% if messages %}
     <div class="message-container">
         {% for message in messages %}
-            {% with message.level as level %}
-                {% if level == 40 %} <!-- error -->
-                    {% include 'includes/toasts/toast_error.html' %}
-                {% elif level == 30 %} <!-- warning -->
-                    {% include 'includes/toasts/toast_warning.html' %}
-                {% elif level == 25 %} <!-- success -->
-                    {% include 'includes/toasts/toast_success.html' %}
-                {% else %} <!-- info -->
-                    {% include 'includes/toasts/toast_info.html' %}
-                {% endif %}
-            {% endwith %}
+        {% with message.level as level %}
+        {% if level == 40 %}
+        <!-- error -->
+        {% include 'includes/toasts/toast_error.html' %}
+        {% elif level == 30 %}
+        <!-- warning -->
+        {% include 'includes/toasts/toast_warning.html' %}
+        {% elif level == 25 %}
+        <!-- success -->
+        {% include 'includes/toasts/toast_success.html' %}
+        {% else %}
+        <!-- info -->
+        {% include 'includes/toasts/toast_info.html' %}
+        {% endif %}
+        {% endwith %}
         {% endfor %}
     </div>
     {% endif %}

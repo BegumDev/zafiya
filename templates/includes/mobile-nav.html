@@ -16,38 +16,36 @@
                 </li>
                 <!-- products -->
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                        aria-expanded="false">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Products
                     </a>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">Best Sellers</a></li>
-                        <li><a class="dropdown-item" href="#">Room Sprays</a></li>
-                        <li><a class="dropdown-item" href="#">Candles & Wax Melts</a></li>
-                        <li><a class="dropdown-item" href="#">Sale</a></li>
-                    </ul>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="{% url 'profile' %}">Best Sellers</a>
+                        <a class="dropdown-item" href="{% url 'account_logout' %}">Room Sprays</a>
+                        <a class="dropdown-item" href="{% url 'account_signup' %}">Candles & Wax Melts</a>
+                        <a class="dropdown-item" href="{% url 'account_login' %}">Sale</a>
+                    </div>
                 </li>
                 <!-- account -->
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                        aria-expanded="false">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Account
                     </a>
-                    <ul class="dropdown-menu">
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         {% if request.user.is_authenticated %}
                         {% if request.user.is_superuser %}
-                        <li><a class="dropdown-item" href="#">Product Management</a></li>
+                        <a class="dropdown-item" href="#">Product Management</a>
                         {% endif %}
-                        <li><a class="dropdown-item" href="#">My Profile</a></li>
-                        <li><a class="dropdown-item" href="{% url 'account_logout' %}">Logout</a></li>
+                        <a class="dropdown-item" href="{% url 'profile' %}">My Profile</a>
+                        <a class="dropdown-item" href="{% url 'account_logout' %}">Logout</a>
                         {% else %}
-                        <li><a class="dropdown-item" href="{% url 'account_signup' %}">Register</a></li>
-                        <li><a class="dropdown-item" href="{% url 'account_login' %}">Login</a></li>
+                        <a class="dropdown-item" href="{% url 'account_signup' %}">Register</a>
+                        <a class="dropdown-item" href="{% url 'account_login' %}">Login</a>
                         {% endif %}
-                    </ul>
+                    </div>
                 </li>
                 <!-- basket -->
-                <li class="nav-item">
+                <li class="nav-item active">
                     <a class="nav-link" href="{% url 'view_bag' %}">
                         Basket
                         {% if grand_total %}
@@ -61,6 +59,8 @@
         </div>
     </div>
 </nav>
+
+
 <!-- search box -->
 <div class="row">
     <div class="col-12 text-center d-block d-lg-none">
