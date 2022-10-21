@@ -1,7 +1,7 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect, reverse
+from django.contrib import messages
 from .models import Product
 from .forms import ProductForm
-from django.contrib import messages
 
 
 def all_products(request):
@@ -30,8 +30,16 @@ def product_details(request, product_id):
 
 def add_product(request):
     """ A view for admin to add products """
-
-    form = ProductForm()
+    if request.method == 'POST':
+        form = ProductForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Successfully added product.')
+            return redirect(reverse('add_product'))
+        else:
+            messages.error(request, 'Failed to add product. Please try again.')
+    else:
+        form = ProductForm()
 
     template = 'products/add_product.html'
     context = {
