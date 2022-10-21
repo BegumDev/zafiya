@@ -107,3 +107,10 @@ def update_post(request, id):
       }
 
     return render(request, template, context)
+
+
+def delete_post(request, id):
+    post = BlogPost.objects.get(id=int(id))
+    post.delete()
+
+    return redirect(reverse('view_blog'))
