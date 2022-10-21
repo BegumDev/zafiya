@@ -50,6 +50,10 @@
                     </div>
                 </div>
                 <a href="{% url 'product_details' product.id %}"><button>view details</button></a>
+                {% if request.user.is_superuser %}
+                    <small><a href="{% url 'edit_product' product.id %}"><button>Edit Product</button></a></small>
+                    <small><a href="{% url 'delete_product' product.id %}"><button>Delete Product</button></a></small>
+                {% endif %}
             </div>
             {% endfor %}
         </div>
