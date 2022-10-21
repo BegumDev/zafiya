@@ -113,6 +113,7 @@
             <nav class=" col-12 col-lg-5 navbar navbar-expand-lg navbar-light bg-light">
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav mr-auto">
+                        <!-- home -->
                         <li class="nav-item active">
                             <a class="nav-link" href="{% url 'home' %}">Home <span class="sr-only">(current)</span></a>
                         </li>
@@ -149,20 +150,27 @@
                             </a>
                         </li>
                     </ul>
+                    {% if request.user.is_authenticated %}
+                    <div class="row">
+                        <div class="col-12 float-right">
+                            <p class="text-small">Logged in as: {{ user.username }}</p>
+                        </div>
+                    </div>
+                    {% endif %}
                 </div>
             </nav>
         </div>
     </header>
 
-        {% include 'includes/mobile-nav.html' %}
-        {% include 'includes/main-nav.html' %}
+    {% include 'includes/mobile-nav.html' %}
+    {% include 'includes/main-nav.html' %}
 
-        <!-- free delivery banner -->
-        <div class="row bg-secondary text-center">
-            <div class="col-12">
-                <h5 class="text-uppercase mt-2 text-light">free delivery on orders over £{{ free_delivery_threshold }}!</h5>
-            </div>
+    <!-- free delivery banner -->
+    <div class="row bg-secondary text-center">
+        <div class="col-12">
+            <h5 class="text-uppercase mt-2 text-light">free delivery on orders over £{{ free_delivery_threshold }}!</h5>
         </div>
+    </div>
 
     </header>
 

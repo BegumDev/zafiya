@@ -13,14 +13,16 @@
             <small><p>{{ post.created_on }}</p></small>
         </div>
     </div>
-    <div class="row mb-4 w-50">
-        <div class="col-6">
-            <button><a href="{% url 'update_post' post.id %}">Edit Post</a></button>
+    {% if request.user == post.author %}
+        <div class="row mb-4 w-50">
+            <div class="col-6">
+                <button><a href="{% url 'update_post' post.id %}">Edit Post</a></button>
+            </div>
+            <div class="col-6">
+                <button><a href="{% url 'delete_post' post.id %}">Delete Post</a></button>
+            </div>
         </div>
-        <div class="col-6">
-            <button><a href="{% url 'delete_post' post.id %}">Delete Post</a></button>
-        </div>
-    </div>
+    {% endif %}
     <div class="row mb-4">
         <div class="col-6">
             <button><a href="{% url 'view_blog' %}">Go back to the main blog</a></button>
