@@ -15,9 +15,14 @@
     {% for x in posts %}
     <div class="col-3">
         <h4>{{ x.blog_title }}</h4>
-        <h4>{{ x.author }}</h4>
-        <h4>{{ x.created_on }}</h4>
-        <h4>{{ x.content }}</h4>
+        <p>{{ x.content }}</p>
+        <small>{{ x.author }}</small>
+        <small>{{ x.created_on }}</small>
+        <div class="row">
+            <div class="col-6">
+                <button><a href="{% url 'update_post' x.id %}">Edit Post</a></button>
+            </div>
+        </div>
         <hr>
     </div>
     {% endfor %}

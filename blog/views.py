@@ -68,3 +68,42 @@ def create_post(request):
       }
 
     return render(request, template, context)
+
+
+def read_post(request, id):
+    """ View individual post """
+    post = BlogPost.objects.get(id=int(id))
+
+    template = 'blog/read_post.html'
+    context = {
+        'post': post,
+    }
+    return render(request, template, context)
+
+
+def update_post(request, id):
+    """ View to create a blog post """
+
+    post = BlogPost.objects.get(id=int(id))
+
+    current_info = {
+        'blog_title': post.blog_title,
+        'content': post.content,
+    }
+    form = BlogForm(initial=current_info)
+
+    if request.method == 'POST':
+        form = BlogForm(request.POST, instance=post)
+        if form.is_valid:
+            form.save()
+            messages.success(request, 'Blog post successfully updated')
+            return redirect(reverse('view_blog'))
+        else:
+            messages.error(request, 'There was an error with the form. Please try again.')
+    
+    template = 'blog/update_post.html'
+    context = {
+          'form': form,
+      }
+
+    return render(request, template, context)

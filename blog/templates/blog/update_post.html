@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<!-- Update a post -->
+<div class="row w-50 ml-3 mb-4 mt-4">
+    <div class="col-12">
+        <p>Please fill out the details to update your post.</p>
+        <form method="POST" action="">
+            {% csrf_token %}
+            <fieldset class="rounded">
+                <legend class="fieldset-label">Details</legend>
+                    {{ form.blog_title | as_crispy_field }}
+                    {{ form.content | as_crispy_field }}
+            </fieldset>
+            <button type="submit">Update Post</button>
+        </form>
+    </div>
+</div>
+
+{% endblock %}
