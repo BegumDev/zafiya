@@ -44,7 +44,7 @@ def create_post(request):
 
 
 def read_post(request, id):
-    """ View individual post """
+    """ View individual post and be able to commeng on them"""
 
     post = BlogPost.objects.get(id=int(id))
 
@@ -52,10 +52,10 @@ def read_post(request, id):
 
     if request.method == 'POST':
         comment_form = CommentForm(request.POST)
-
         if comment_form.is_valid():
             instance = comment_form.save(commit=False)
             instance.post = post  # attach the comment form to the post
+            instance.post.comment_author = request.user
             instance.save()
             messages.success(request, 'Added comment')
             return redirect(reverse('read_post', args=[post.id]))
@@ -105,3 +105,4 @@ def delete_post(request, id):
     post.delete()
 
     return redirect(reverse('view_blog'))
+

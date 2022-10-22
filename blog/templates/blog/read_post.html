@@ -14,11 +14,12 @@
             <small><p>{{ post.author }}</p></small>
             <small><p>{{ post.created_on }}</p></small>
             <!-- comments display -->
-            {% for x in post.comments.all %}
-            <hr>
             <p>comments...</p>
-            <p class="text-danger">{{ x.comment }}</p>
-            <small><p class="text-danger">{{ x.date }}</p></small>
+            {% for x in post.comments.all %}
+                <hr>
+                <p class="text-danger">{{ x.comment }}</p>
+                <small><p class="text-info">{{ x.comment_author }}</p></small>
+                <small><p class="text-danger">{{ x.date }}</p></small>
             {% endfor %}
         </div>
     </div>
