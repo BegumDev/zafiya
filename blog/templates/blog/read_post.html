@@ -2,27 +2,46 @@
 
 {% block content %}
 
-<h1 class="ml-4 mt-3">Read Post Page</h1>
+<h1 class="ml-4 mt-3 text-center">Read Post Page</h1>
+<h2 class="text-center">{{ post.blog_title }}</h2>
 
 <div class="ml-4">
+    <!-- blog post -->
     <div class="row">
         <div class="col-6">
-            <h3>{{ post.blog_title }}</h3>
+            <p>{{ post.blog_title }}</p>
             <p>{{ post.content }}</p>
             <small><p>{{ post.author }}</p></small>
             <small><p>{{ post.created_on }}</p></small>
+            <!-- comments display -->
+            {% for x in post.comments.all %}
+            <hr>
+            <p>comments...</p>
+            <p class="text-danger">{{ x.comment }}</p>
+            <small><p class="text-danger">{{ x.date }}</p></small>
+            {% endfor %}
         </div>
     </div>
+    <!-- comment on the post form -->
+    <div class="row">
+        <form action="" method="POST">
+            {% csrf_token %}
+            {{ comment_form | crispy }}
+            <button type="submit">Add Comment</button>
+        </form>
+    </div>
+    <!-- post editing ability -->
     {% if request.user == post.author %}
         <div class="row mb-4 w-50">
-            <div class="col-6">
-                <button><a href="{% url 'update_post' post.id %}">Edit Post</a></button>
+            <div class="col-2">
+                <small><a href="{% url 'update_post' post.id %}" class="text-success">Edit Post</a></small>
             </div>
-            <div class="col-6">
-                <button><a href="{% url 'delete_post' post.id %}">Delete Post</a></button>
+            <div class="col-2">
+                <small><a href="{% url 'delete_post' post.id %}" class="text-danger">Delete Post</a></small>
             </div>
         </div>
     {% endif %}
+    <!-- back to maain blog -->
     <div class="row mb-4">
         <div class="col-6">
             <button><a href="{% url 'view_blog' %}">Go back to the main blog</a></button>

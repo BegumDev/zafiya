@@ -10,3 +10,10 @@ class BlogPost(models.Model):
 
     def __str__(self):
         return self.blog_title
+
+
+class PostComment(models.Model):
+    post = models.ForeignKey(BlogPost, on_delete=models.CASCADE,
+                             related_name='comments')
+    comment = models.TextField(null=False)
+    date = models.DateTimeField(auto_now_add=True)

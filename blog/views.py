@@ -1,8 +1,8 @@
 from django.shortcuts import render, redirect, reverse
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
-from .models import BlogPost
-from .forms import BlogForm
+from .models import BlogPost, PostComment
+from .forms import BlogForm, CommentForm
 from django.contrib import messages
 
 # Create your views here.
@@ -13,33 +13,6 @@ def view_blog(request):
         'posts': posts,
     }
     return render(request, 'blog/blog.html', context)
-
-
-# @login_required
-# def create_post(request):
-#     """ View to create a blog post """
-#     if request.method == 'POST':
-#         form_data = {
-#             'blog_title': request.POST['blog_title'],
-#             'author': request.POST['author'],
-#             'content': request.POST['content'],
-#         }
-
-#         blog_form = BlogForm(form_data)
-#         if blog_form.is_valid():
-#             blog_form.save()
-#             return redirect(reverse('view_blog'))
-#         else:
-#             messages.error(request, 'There was an error with the form. Please try again.')
-#     else:
-#         blog_form = BlogForm()
-    
-#     template = 'blog/create_post.html'
-#     context = {
-#         'blog_form': blog_form,
-#     }
-
-#     return render(request, template, context)
 
 
 @login_required
@@ -72,11 +45,29 @@ def create_post(request):
 
 def read_post(request, id):
     """ View individual post """
+
     post = BlogPost.objects.get(id=int(id))
+
+    comment_form = CommentForm()
+
+    if request.method == 'POST':
+        comment_form = CommentForm(request.POST)
+
+        if comment_form.is_valid():
+            instance = comment_form.save(commit=False)
+            instance.post = post  # attach the comment form to the post
+            instance.save()
+            messages.success(request, 'Added comment')
+            return redirect(reverse('read_post', args=[post.id]))
+        else:
+            messages.success(request, 'Failed to add comment')
+    else:
+        comment_form = CommentForm()
 
     template = 'blog/read_post.html'
     context = {
         'post': post,
+        'comment_form': comment_form,
     }
     return render(request, template, context)
 
