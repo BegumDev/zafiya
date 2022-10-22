@@ -1,23 +1,21 @@
-<div class="row">
-    <div class="col-12 d-none d-lg-flex list-inline justify-content-center bg-light">
-        <ul class="list-inline">
+<nav class="col-12 navbar navbar-expand-lg navbar-light">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
             <!-- home -->
-            <li class="list-inline-item">
-                <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>
+            <li class="nav-item active">
+                <a class="nav-link" href="{% url 'home' %}">Home <span class="sr-only">(current)</span></a>
             </li>
             <!-- products -->
-            <li class="dropdown list-inline-item">
-                <a class="nav-link dropdown-toggle" href="" role="button" data-bs-toggle="dropdown"
-                    aria-expanded="false">
-                    Products
-                </a>
-                <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="#">Best Sellers</a></li>
-                    <li><a class="dropdown-item" href="#">Room Sprays</a></li>
-                    <li><a class="dropdown-item" href="#">Candles & Wax Melts</a></li>
-                    <li><a class="dropdown-item" href="#">Sale</a></li>
-                </ul>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Products</a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="">Best Sellers</a>
+                    <a class="dropdown-item" href="">Room Sprays</a>
+                    <a class="dropdown-item" href="">Candles & Wax Melts</a>
+                    <a class="dropdown-item" href="">Sale</a>
+                </div>
             </li>
         </ul>
     </div>
-</div>
+</nav>
