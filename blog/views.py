@@ -1,16 +1,33 @@
 from django.shortcuts import render, redirect, reverse
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
+from django.contrib import messages
+from django.db.models import Q
 from .models import BlogPost, PostComment
 from .forms import BlogForm, CommentForm
-from django.contrib import messages
 
 # Create your views here.
 def view_blog(request):
     """ A view to show all products """
+
     posts = BlogPost.objects.all()
+
+    # search the blog
+    blog_search = None
+
+    if request.GET:
+        if 'blog_search' in request.GET:
+            blog_search = request.GET['blog_search']
+            if not blog_search:
+                messages.error(request, "No search entered.")
+                return redirect(reverse('view_blog'))
+            
+            queries = Q(blog_title__icontains=blog_search) | Q(content__icontains=blog_search)
+            posts = posts.filter(queries)
+
     context = {
         'posts': posts,
+        'search_for': blog_search,
     }
     return render(request, 'blog/blog.html', context)
 

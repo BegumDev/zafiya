@@ -4,11 +4,23 @@
 
 <h1>Blog Page</h1>
 
+<!-- create a post -->
 <div class="row mb-4 mt-4 ml-4">
     <div class="col-12">
         <button><a href="{% url 'create_post' %}">Create a post</a></button>
     </div>
 </div>
+
+<!-- search for posts -->
+    <div class="row">
+        <div class="col-12">
+            <form action="{% url 'view_blog' %}" method="GET">
+                <input class="border-black border" type="text" name="blog_search" placeholder="Search the blog">
+                <button class="btn btn-sm border-black border" type="submit"><i
+                        class="fa-solid fa-magnifying-glass"></i></button>
+            </form>
+        </div>
+    </div>
 
 <!-- View all blog posts -->
 <div class="row ml-4">
