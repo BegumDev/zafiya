@@ -92,6 +92,7 @@ def checkout(request):
             amount=stripe_total,
             currency=settings.STRIPE_CURRENCY,
         )
+        print(intent)
 
         if request.user.is_authenticated:
             try:
