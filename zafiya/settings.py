@@ -13,8 +13,8 @@ import dj_database_url
 
 import os
 if os.path.exists("env.py"):
-  import env 
-  
+    import env
+
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -30,7 +30,7 @@ SECRET_KEY = 'django-insecure-!x0fs@c%x+24+j-9l(22k&enxj^wo#9w=za%iv*u2d%=x-^_r*
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['begumdev-zafiya.herokuapp.com', 'localhost']
+ALLOWED_HOSTS = ['zafiya.herokuapp.com', 'localhost']
 
 
 # Application definition
@@ -127,7 +127,7 @@ WSGI_APPLICATION = 'zafiya.wsgi.application'
 
 if 'DATABASE_URL' in os.environ:
     DATABASES = {
-    'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
+        'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
     }
 else:
     DATABASES = {
@@ -136,7 +136,6 @@ else:
             'NAME': BASE_DIR / 'db.sqlite3',
         }
     }
-
 
 
 # Password validation
