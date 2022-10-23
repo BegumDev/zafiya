@@ -31,6 +31,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY', '')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = 'DEVELOPMENT' in os.environ
 
+
 ALLOWED_HOSTS = ['zafiya.herokuapp.com', 'localhost']
 
 # Application definition
@@ -180,6 +181,7 @@ STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
 
 if 'USE_AWS' in os.environ:
     # Cache control
