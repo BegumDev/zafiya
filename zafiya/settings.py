@@ -30,7 +30,7 @@ SECRET_KEY = 'django-insecure-!x0fs@c%x+24+j-9l(22k&enxj^wo#9w=za%iv*u2d%=x-^_r*
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['begumdev-zafiya.herokuapp.com', 'localhost']
 
 
 # Application definition
@@ -124,12 +124,18 @@ WSGI_APPLICATION = 'zafiya.wsgi.application'
 Database
 https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+
+if 'DATABASE_URL' in os.environ:
+    DATABASES = {
+    'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
     }
-}
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': BASE_DIR / 'db.sqlite3',
+        }
+    }
 
 
 
