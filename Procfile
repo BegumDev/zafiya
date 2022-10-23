@@ -1,1 +1,1 @@
-web: gunicorn zafiya.wisgi:application
+web: gunicorn zafiya.wsgi:application
