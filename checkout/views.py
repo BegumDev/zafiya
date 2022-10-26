@@ -34,22 +34,22 @@ def cache_checkout_data(request):
         return HttpResponse(content=e, status=400)
 
 
-def send_email(order):
-    """ send the user a confirmation email """
-    customer_email = order.email
-    subject = render_to_string(
-        'checkout/confirmation_emails/confirmation_email_subject.txt',
-        {'order': order})
-    body = render_to_string(
-        'checkout/confirmation_emails/confirmation_email_body.txt',
-        {'order': order, 'contact_email': settings.DEFAULT_FROM_EMAIL})
+# def send_email(order):
+#     """ send the user a confirmation email """
+#     customer_email = order.email
+#     subject = render_to_string(
+#         'checkout/confirmation_emails/confirmation_email_subject.txt',
+#         {'order': order})
+#     body = render_to_string(
+#         'checkout/confirmation_emails/confirmation_email_body.txt',
+#         {'order': order, 'contact_email': settings.DEFAULT_FROM_EMAIL})
     
-    send_mail(
-        subject,
-        body,
-        settings.DEFAULT_FROM_EMAIL,
-        [customer_email]
-    ) 
+#     send_mail(
+#         subject,
+#         body,
+#         settings.DEFAULT_FROM_EMAIL,
+#         [customer_email]
+#     ) 
 
 
 # Create your views here.
@@ -80,7 +80,7 @@ def checkout(request):
             order.stripe_id = pid
             order.original_bag = json.dumps(bag)
             order.save()
-            send_email(order)
+            # send_email(order)
             for item_id, quantity in bag.items():
                 try:
                     product = Product.objects.get(id=item_id)
@@ -184,6 +184,4 @@ def checkout_success(request, order_number):
         'order': order,
     }
     return render(request, template, context)
-    
-
     
