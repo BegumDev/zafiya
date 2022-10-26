@@ -128,17 +128,17 @@ WSGI_APPLICATION = 'zafiya.wsgi.application'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
 
-# if 'DATABASE_URL' in os.environ:
-#     DATABASES = {
-#         'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
-#     }
-# else:
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),  # dev
+if 'DATABASE_URL' in os.environ:
+    DATABASES = {
+        'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
     }
-}
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),  # dev
+        }
+    }
 
 
 # Password validation
@@ -243,4 +243,4 @@ DEFAULT_FROM_EMAIL = 'zafiya@example.com'
 #     DEFAULT_FROM_EMAIL = os.environ.get('EMAIL_HOST_USER')
 
 
-# ACCOUNT_EMAIL_VERIFICATION = 'none'  # prevents emails to verify an account
+ACCOUNT_EMAIL_VERIFICATION = 'none'  # prevents emails to verify an account
