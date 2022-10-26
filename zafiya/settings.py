@@ -11,9 +11,9 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 import dj_database_url
 
-import os
-if os.path.exists("env.py"):
-    import env
+# import os
+# if os.path.exists("env.py"):
+#     import env
 
 
 from pathlib import Path
@@ -29,10 +29,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get('SECRET_KEY', '')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-# DEBUG = 'DEVELOPMENT' in os.environ
+DEBUG = 'DEVELOPMENT' in os.environ
 
 # this is the dev environment
-DEBUG = True
+# DEBUG = True
 
 
 ALLOWED_HOSTS = ['zafiya.herokuapp.com', 'localhost']
@@ -114,7 +114,7 @@ SITE_ID = 1
 
 ACCOUNT_AUTHENTICATION_METHOD = 'username_email'  # Can use username or email
 ACCOUNT_EMAIL_REQUIRED = True
-ACCOUNT_EMAIL_VERIFICATION = 'mandatory'  # Must be a real email verified
+# ACCOUNT_EMAIL_VERIFICATION = 'mandatory'  # Must be a real email verified
 ACCOUNT_SIGNUP_EMAIL_ENTER_TWICE = True
 ACCOUNT_USERNAME_MIN_LENGTH = 4
 LOGIN_URL = '/accounts/login/'
