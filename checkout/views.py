@@ -5,6 +5,8 @@ from django.shortcuts import render, reverse, redirect, get_object_or_404, HttpR
 from django.views.decorators.http import require_POST
 from django.contrib import messages
 from django.conf import settings
+from django.core.mail import send_mail
+from django.template.loader import render_to_string
 
 from bag.contexts import bag_contents
 from products.models import Product
@@ -30,6 +32,24 @@ def cache_checkout_data(request):
         messages.error(request, 'Sorry your payment could not be processed \
              right now. Please try again later.')
         return HttpResponse(content=e, status=400)
+
+
+def send_email(order):
+    """ send the user a confirmation email """
+    customer_email = order.email
+    subject = render_to_string(
+        'checkout/confirmation_emails/confirmation_email_subject.txt',
+        {'order': order})
+    body = render_to_string(
+        'checkout/confirmation_emails/confirmation_email_body.txt',
+        {'order': order, 'contact_email': settings.DEFAULT_FROM_EMAIL})
+    
+    send_mail(
+        subject,
+        body,
+        settings.DEFAULT_FROM_EMAIL,
+        [customer_email]
+    ) 
 
 
 # Create your views here.
@@ -60,6 +80,7 @@ def checkout(request):
             order.stripe_id = pid
             order.original_bag = json.dumps(bag)
             order.save()
+            send_email(order)
             for item_id, quantity in bag.items():
                 try:
                     product = Product.objects.get(id=item_id)
