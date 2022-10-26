@@ -1,13 +1,12 @@
+import json
+import time
 from django.http import HttpResponse
 from django.core.mail import send_mail
 from django.template.loader import render_to_string
+from django.conf import settings
 from products.models import Product
 from .models import Order, OrderLineItem
-from django.conf import settings
 
-
-import json
-import time
 
 
 class StripeWH_Handler:
@@ -30,7 +29,7 @@ class StripeWH_Handler:
             body,
             settings.DEFAULT_FROM_EMAIL,
             [customer_email]
-        )   
+        ) 
 
 
     def handle_event(self, event):
