@@ -12,8 +12,8 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 import dj_database_url
 
 import os
-# if os.path.exists("env.py"):
-#     import env
+if os.path.exists("env.py"):
+    import env  # this is using locally
 
 
 from pathlib import Path
@@ -114,7 +114,7 @@ SITE_ID = 1
 
 ACCOUNT_AUTHENTICATION_METHOD = 'username_email'  # Can use username or email
 ACCOUNT_EMAIL_REQUIRED = True
-# ACCOUNT_EMAIL_VERIFICATION = 'mandatory'  # Must be a real email verified
+ACCOUNT_EMAIL_VERIFICATION = 'mandatory'  # Must be a real email verified
 ACCOUNT_SIGNUP_EMAIL_ENTER_TWICE = True
 ACCOUNT_USERNAME_MIN_LENGTH = 4
 LOGIN_URL = '/accounts/login/'
@@ -223,7 +223,7 @@ STRIPE_PUBLIC_KEY = os.getenv('STRIPE_PUBLIC_KEY', '')
 STRIPE_SECRET_KEY = os.getenv('STRIPE_SECRET_KEY', '')
 STRIPE_WH_SECRET = os.getenv('STRIPE_WH_SECRET', '')
 
-ACCOUNT_EMAIL_VERIFICATION = 'none'  # prevents emails to verify an account
+# ACCOUNT_EMAIL_VERIFICATION = 'none'  # prevents emails to verify an account
 
 # this is the dev environment variables
 # STRIPE_PUBLIC_KEY = os.environ.get('STRIPE_PUBLIC_KEY', '')
