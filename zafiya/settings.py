@@ -32,7 +32,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY', '')
 # DEBUG = 'DEVELOPMENT' in os.environ
 
 # this is the dev environment
-# DEBUG = True
+DEBUG = True
 
 
 ALLOWED_HOSTS = ['zafiya.herokuapp.com', 'localhost']
