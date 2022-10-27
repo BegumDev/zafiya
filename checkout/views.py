@@ -34,22 +34,22 @@ def cache_checkout_data(request):
         return HttpResponse(content=e, status=400)
 
 
-# def send_email(order):
-#     """ send the user a confirmation email """
-#     customer_email = order.email
-#     subject = render_to_string(
-#         'checkout/confirmation_emails/confirmation_email_subject.txt',
-#         {'order': order})
-#     body = render_to_string(
-#         'checkout/confirmation_emails/confirmation_email_body.txt',
-#         {'order': order, 'contact_email': settings.DEFAULT_FROM_EMAIL})
+def send_email(order):
+    """ send the user a confirmation email """
+    customer_email = order.email
+    subject = render_to_string(
+        'checkout/confirmation_emails/confirmation_email_subject.txt',
+        {'order': order})
+    body = render_to_string(
+        'checkout/confirmation_emails/confirmation_email_body.txt',
+        {'order': order, 'contact_email': settings.DEFAULT_FROM_EMAIL})
     
-#     send_mail(
-#         subject,
-#         body,
-#         settings.DEFAULT_FROM_EMAIL,
-#         [customer_email]
-#     ) 
+    send_mail(
+        subject,
+        body,
+        settings.DEFAULT_FROM_EMAIL,
+        [customer_email]
+    ) 
 
 
 # Create your views here.
