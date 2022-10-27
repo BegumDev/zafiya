@@ -129,9 +129,9 @@ WSGI_APPLICATION = 'zafiya.wsgi.application'
 
 
 if 'DATABASE_URL' in os.environ:
-DATABASES = {
-    'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
-}
+    DATABASES = {
+        'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
+    }
 else:
     DATABASES = {
         'default': {
