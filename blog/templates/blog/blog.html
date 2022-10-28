@@ -2,19 +2,17 @@
 
 {% block content %}
 
-<h1>Blog Page</h1>
-
-<h2 class="text-danger">TEST 2</h2>
+<h1 class="text-center">Blog Page</h1>
 
 <!-- create a post -->
-<div class="row mb-4 mt-4 ml-4 text-info">
+<div class="row mb-4 mt-4 ml-4 text-info text-center">
     <div class="col-12">
         <button><a href="{% url 'create_post' %}">Create post</a></button>
     </div>
 </div>
 
 <!-- search for posts -->
-    <div class="row">
+    <div class="row text-right mr-3">
         <div class="col-12">
             <form action="{% url 'view_blog' %}" method="GET">
                 <input class="border-black border" type="text" name="blog_search" placeholder="Search the blog">

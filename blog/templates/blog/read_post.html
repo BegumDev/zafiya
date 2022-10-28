@@ -16,20 +16,28 @@
             <!-- comments display -->
             <p>comments...</p>
             {% for x in post.comments.all %}
-                <hr>
-                <p class="text-danger">{{ x.comment }}</p>
-                <small><p class="text-info">{{ x.comment_author }}</p></small>
-                <small><p class="text-danger">{{ x.date }}</p></small>
+            <div class="row w-50">
+                <div class="col-12">
+                    <hr>
+                    <p class="text-danger">{{ x.comment }}</p>
+                    <small><p class="text-info">{{ x.comment_author }}</p></small>
+                    <small><p class="text-danger">{{ x.date }}</p></small>
+                </div>
+            </div>
             {% endfor %}
         </div>
     </div>
     <!-- comment on the post form -->
     <div class="row">
+        {% if user.is_authenticated %}
         <form action="" method="POST">
             {% csrf_token %}
             {{ comment_form | crispy }}
             <button type="submit">Add Comment</button>
         </form>
+        {% else %}
+            <p>Please <a href="{% url 'account_login' %}">log in</a> to add a comment</p>
+        {% endif %}
     </div>
     <!-- post editing ability -->
     {% if request.user == post.author %}
