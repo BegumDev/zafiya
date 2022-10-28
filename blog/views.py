@@ -61,7 +61,7 @@ def create_post(request):
 
 
 def read_post(request, id):
-    """ View individual post and be able to commeng on them"""
+    """ View individual post and be able to comment on them"""
 
     post = BlogPost.objects.get(id=int(id))
 
