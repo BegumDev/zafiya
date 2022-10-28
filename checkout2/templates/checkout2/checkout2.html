@@ -75,7 +75,7 @@
         <!-- checkout details form -->
         <div class="col-12 col-lg-6">
             <p>Please fill out the form below to complete your order.</p>
-            <form action="{% url 'checkout' %}" method="POST" id="payment-form" class="mb-3">
+            <form action="{% url 'checkout2' %}" method="POST" id="payment-form" class="mb-3">
                 {% csrf_token %}
                 <!-- details -->
                 <fieldset class="rounded">
@@ -112,7 +112,7 @@
                     <div id="card-element" class="payment-card mt-3 mb-3"></div>
                     <!-- card errors -->
                     <div class="text-danger" id="card-errors" role="alert"></div>
-                    <input type="hidden" value="{{ client_secret }}" name="client_secret">
+                    <!-- <input type="hidden" value="{{ client_secret }}" name="client_secret"> -->
                 </fieldset>
             
                 <!-- complete the checkout -->
@@ -133,7 +133,7 @@
 
 {% block postloadjs %}
     {{ block.super }}
-    <!-- {{ stripe_public_key|json_script:"id_stripe_public_key" }}
-    {{ client_secret|json_script:"id_client_secret" }} -->
-    <!-- <script src="{% static 'checkout/js/stripe_elements.js' %}"></script> -->
+    {{ stripe_public_key|json_script:"id_stripe_public_key" }}
+    {{ client_secret|json_script:"id_client_secret" }}
+    <script src="{% static 'checkout2/js/stripe_elements2.js' %}"></script>
 {% endblock %}

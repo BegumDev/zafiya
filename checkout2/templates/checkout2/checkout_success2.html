@@ -1,4 +1,4 @@
-<!-- {% extends "base.html" %}
+{% extends "base.html" %}
 {% load static %}
 
 {% block page_header %}
@@ -8,7 +8,7 @@
 {% endblock %}
 
 {% block css %}
-    <link rel="stylesheet" href="{% static 'checkout/css/checkout.css' %}">
+    <link rel="stylesheet" href="{% static 'checkout2/css/checkout2.css' %}">
 {% endblock %}
 
 {% block content %}
@@ -135,17 +135,10 @@
     </div>
     <div class="row mt-3 mb-3 text-right">
         <div class="col-7">
-            {% if from_profile %}
-            <a href="{% url 'profile' %}" class="btn btn-md btn-primary mb-3">
-                <i class="fa-solid fa-chevron-left"></i>
-                <span>Back to your profile page</span>
-            </a>
-            {% else %}
             <a href="{% url 'home' %}" class="btn btn-md btn-primary mb-3">
                 <i class="fa-solid fa-chevron-left"></i>
                 <span>Back to the homepage</span>
             </a>
-            {% endif %}
         </div>
     </div>
 
@@ -153,4 +146,4 @@
 </section>
 
 
-{% endblock %} -->
+{% endblock %}

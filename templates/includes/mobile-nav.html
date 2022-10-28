@@ -20,7 +20,7 @@
                         Products
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="{% url 'profile' %}">Best Sellers</a>
+                        <a class="dropdown-item" href="#">Best Sellers</a>
                         <a class="dropdown-item" href="{% url 'account_logout' %}">Room Sprays</a>
                         <a class="dropdown-item" href="{% url 'account_signup' %}">Candles & Wax Melts</a>
                         <a class="dropdown-item" href="{% url 'account_login' %}">Sale</a>
@@ -36,7 +36,7 @@
                         {% if request.user.is_superuser %}
                         <a class="dropdown-item" href="{% url 'add_product' %}">Product Management</a>
                         {% endif %}
-                        <a class="dropdown-item" href="{% url 'profile' %}">My Profile</a>
+                        <a class="dropdown-item" href="#">My Profile</a>
                         <a class="dropdown-item" href="{% url 'account_logout' %}">Logout</a>
                         {% else %}
                         <a class="dropdown-item" href="{% url 'account_signup' %}">Register</a>

@@ -10,6 +10,7 @@ def view_bag(request):
     
     return render(request, 'bag/view_bag.html')
 
+
 # add to bag view
 def add_to_bag(request, item_id):
     """ A view to add items to the bag contents """
@@ -28,7 +29,7 @@ def add_to_bag(request, item_id):
     
     request.session['bag'] = bag  # Then store the new information in the session with the updated quantity.
 
-    print(request.session['bag'])
+    # print(request.session['bag'])
     return redirect(redirect_url)
 
 # adjust the bag
