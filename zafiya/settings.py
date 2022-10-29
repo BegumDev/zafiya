@@ -12,8 +12,8 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 import dj_database_url  # deploy
 
 import os  # dev
-# if os.path.exists("env.py"):
-#     import env  # dev
+if os.path.exists("env.py"):
+    import env  # dev
 
 
 from pathlib import Path
