@@ -72,7 +72,7 @@ def read_post(request, id):
         if comment_form.is_valid():
             instance = comment_form.save(commit=False)
             instance.post = post  # attach the comment form to the post
-            instance.post.comment_author = request.user
+            instance.comment_author = request.user
             instance.save()
             messages.success(request, 'Added comment')
             return redirect(reverse('read_post', args=[post.id]))
