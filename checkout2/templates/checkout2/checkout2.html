@@ -9,7 +9,7 @@
 {% endblock %}
 
 {% block css %}
-    <link rel="stylesheet" href="{% static 'checkout/css/checkout.css' %}">
+    <link rel="stylesheet" href="{% static 'checkout2/css/checkout2.css' %}">
 {% endblock %}
 
 {% block content %}
@@ -75,17 +75,26 @@
         <!-- checkout details form -->
         <div class="col-12 col-lg-6">
             <p>Please fill out the form below to complete your order.</p>
-            <form action="{% url 'checkout2' %}" method="POST" id="payment-form" class="mb-3">
+            <form action="#" method="POST" id="payment-form" class="mb-3">
                 {% csrf_token %}
                 <!-- details -->
                 <fieldset class="rounded">
                     <legend class="fieldset-label">Details</legend>
+                        <!-- <input type="text">{{ order_form.full_name }}
+                        <input type="text">{{ order_form.email }} -->
                         {{ order_form.full_name | as_crispy_field }}
                         {{ order_form.email | as_crispy_field }}
                 </fieldset>
                 <!-- delivery -->
                 <fieldset class="rounded">
                     <legend class="fieldset-label">Delivery</legend>
+                        <!-- <input type="text">{{ order_form.phone_number }}
+                        <input type="text">{{ order_form.street_address1 }}
+                        <input type="text">{{ order_form.street_address2 }}
+                        <input type="text">{{ order_form.town_or_city }}
+                        <input type="text">{{ order_form.postcode }}
+                        <input type="text">{{ order_form.county }}
+                        <input type="text">{{ order_form.country }} -->
                         {{ order_form.phone_number | as_crispy_field }}
                         {{ order_form.street_address1 | as_crispy_field }}
                         {{ order_form.street_address2 | as_crispy_field }}
@@ -112,7 +121,7 @@
                     <div id="card-element" class="payment-card mt-3 mb-3"></div>
                     <!-- card errors -->
                     <div class="text-danger" id="card-errors" role="alert"></div>
-                    <!-- <input type="hidden" value="{{ client_secret }}" name="client_secret"> -->
+                    <input type="hidden" value="{{ client_secret }}" name="client_secret">
                 </fieldset>
             
                 <!-- complete the checkout -->
